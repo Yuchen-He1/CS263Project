@@ -18,7 +18,7 @@ for N in $SIZES; do
     echo "Benchmarking with N=$N (run $i of $REPEATS)"
 
     # Time the native binary (capture just the "real" seconds)
-    NATIVE_TIME=$(/usr/bin/time -f "%e" ./matrix_mulC "$N" 2>&1)
+    NATIVE_TIME=$(/usr/bin/time -f "%e" ./matrix_mul_native "$N" 2>&1)
 
     # Time the wasm3 execution
     WASM_TIME=$(/usr/bin/time -f "%e" wasm3 matrix_mul.wasm "$N" 2>&1)
