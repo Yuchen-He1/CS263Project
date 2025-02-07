@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WASM Performance Test</title>
+</head>
+<body>
+    <h2>WASM Matrix Multiplication CPU Time</h2>
+    <p id="output">Running...</p>
+
+    <script>
+        var Module = {
+            onRuntimeInitialized: function () {
+                console.log("✅ WebAssembly Loaded!");
+
+                let runMatrixMultiplication = Module.cwrap('run_matrix_multiplication', 'void', []);
+
+                let start = performance.now();  // **Start Timer**
+                runMatrixMultiplication();      // **Run WASM Function**
+                let end = performance.now();    // **End Timer**
+
+                let cpuTime = end - start;
+                console.log(`✅ Execution Time: ${cpuTime.toFixed(6)} ms`);
+                document.getElementById("output").innerText = `Execution Time: ${cpuTime.toFixed(6)} ms`;
+            }
+        };
+    </script>
+
+    <script src="matrix.js"></script> <!-- Load the compiled WebAssembly -->
+</body>
+</html>
