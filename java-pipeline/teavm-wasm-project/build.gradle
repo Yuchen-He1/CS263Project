@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.teavm' version '0.11.0' // Updated to the latest compatible version
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.teavm:teavm-tooling:0.11.0'
+}
+
+teavm {
+    wasm = true  // Enable WebAssembly output
+    mainClass = "com.example.Main"
+}
+
+application {
+    mainClass = "com.example.Main"
+}
+
+// Custom task to compile Java to WebAssembly
+task compileWasm(type: JavaExec) {
+    mainClass = 'org.teavm.tooling.TeaVMTool'
+    classpath = sourceSets.main.runtimeClasspath
+    args = ['--target', 'wasm', '--main', 'com.example.Main', '--output-dir', 'build/teavm/wasm']
+}
