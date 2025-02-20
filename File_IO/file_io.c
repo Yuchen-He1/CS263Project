@@ -4,6 +4,7 @@
 #include <sys/times.h>  // times() - 计算CPU时间
 #include <unistd.h>     // sysconf(), read(), write(), close()
 #include <fcntl.h>      // open()
+#include <time.h>
 
 #define FILE_SIZE_MB 100
 #define BUFFER_SIZE 4096  // 4KB
@@ -20,6 +21,9 @@ double get_cpu_time() {
     struct tms time_sample;
     clock_t clock_time = times(&time_sample);
     long ticks_per_sec = sysconf(_SC_CLK_TCK);
+    /*Cpu time is incorrect in wasm.This happens 
+    because:WebAssembly (WASI) does not support times() properly.
+    sysconf(_SC_CLK_TCK) returns a bad value in WASM.*/
     return (double)clock_time / ticks_per_sec;
 }
 
