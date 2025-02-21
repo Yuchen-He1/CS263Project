@@ -1,0 +1,4 @@
+# Ignore testfile.txt under File_IO directory
+File_IO/testfile.txt
+# ignore .vscode directory
+.vscode/ 
