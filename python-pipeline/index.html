@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python in WebAssembly (WASM)</title>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
+</head>
+<body>
+    <h2>Matrix Multiplication in WebAssembly (Python)</h2>
+    <button onclick="runPython()">Run Matrix Multiplication</button>
+    <p id="output">Execution time will be shown here.</p>
+
+    <script>
+        async function runPython() {
+            let pyodide = await loadPyodide();
+            await pyodide.loadPackage(["numpy"]);  // Load NumPy for matrix operations
+            
+            let script = `
+import numpy as np
+import time
+
+# Define matrix size
+N = 500
+
+# Generate random matrices
+A = np.random.rand(N, N)
+B = np.random.rand(N, N)
+
+# Measure execution time
+start = time.time()
+C = np.dot(A, B)
+end = time.time()
+
+execution_time = end - start
+execution_time
+`;
+
+            let result = pyodide.runPython(script);
+            document.getElementById("output").innerText = "Execution Time: " + result + " seconds";
+        }
+    </script>
+</body>
+</html>
+
