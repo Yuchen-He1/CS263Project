@@ -2,3 +2,7 @@
 File_IO/testfile.txt
 # ignore .vscode directory
 .vscode/ 
+# ignore existing_benchmark directory
+existing_benchmark/
+# ignore new_benchmark directory
+coremark/
