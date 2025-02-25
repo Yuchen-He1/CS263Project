@@ -27,18 +27,22 @@ perf record -g wasmtime my_program.wasm
 perf script | stackcollapse-perf.pl | flamegraph.pl > flamegraph.svg
 ```
 ## TODO benchmark 
-coremark -[x]()
-coremark-webassembly -[x](
+coremark -[x]   
+coremark-webassembly -[x]  
+how to run coremark respectively
 ```shell
     ./coremark.exe 0x0 0x0 0x66 600000 
-```
-    )            
+```           
 ```shell
-    cd coremark; make; make compile PORT_DIR=simple CC=/home/hylanc/wasi-sdk-25.0-x86_64-linux/bin/clang PORT_CFLAGS="--target=wasm32-wasi --sysroot=/home/hylanc/wasi-sdk-25.0-x86_64-linux/share/wasi-sysroot -D_WASI_EMULATED_PROCESS_CLOCKS -lwasi-emulated-process-clocks -O3 -Wno-deprecated-declarations" EXE=.wasm ITERATIONS=600000
+    cd coremark; make; make compile PORT_DIR=simple CC=/home/hylanc/wasi-sdk-25.0-x86_64-linux/bin/clang PORT_CFLAGS="--target=wasm32-wasi 
+                --sysroot=/home/hylanc/wasi-sdk-25.0-x86_64-linux/share/wasi-sysroot
+                 -D_WASI_EMULATED_PROCESS_CLOCKS 
+                 -lwasi-emulated-process-clocks 
+                 -O3 -Wno-deprecated-declarations"
+                 EXE=.wasm ITERATIONS=600000
     wasmtime coremark.wasm
 ```
-)
-matrix_multiplication -[x]
-recursion -[x]
+matrix_multiplication -[x]   
+recursion -[x]   
 file_io (to test file io, we need to use wasmtime and compile by using clang instead of emcc)
 
