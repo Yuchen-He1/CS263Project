@@ -1,44 +1,44 @@
 C++ Benchmarks Performance Results (Wall Time, CPU Time, Cycles)
 ----------------------------------------------------------------
 Benchmark: Bubble Sort
-Bubble Sort | Array Size: 1000 | Time: 1.70294 ms
-Bubble Sort | Array Size: 5000 | Time: 42.1524 ms
-Bubble Sort | Array Size: 10000 | Time: 190.769 ms
-Bubble Sort | Array Size: 50000 | Time: 5169.79 ms
+Bubble Sort | Array Size: 1000 | Time: 1.66727 ms
+Bubble Sort | Array Size: 5000 | Time: 42.4456 ms
+Bubble Sort | Array Size: 10000 | Time: 189.125 ms
+Bubble Sort | Array Size: 50000 | Time: 5278.7 ms
 ----------------------------------------
 Benchmark: Fibonacci
-Fibonacci | N: 30 | Result: 832040 | Time: 1.25671 ms
-Fibonacci | N: 32 | Result: 2178309 | Time: 3.84486 ms
-Fibonacci | N: 34 | Result: 5702887 | Time: 9.89092 ms
-Fibonacci | N: 36 | Result: 14930352 | Time: 22.2749 ms
-Fibonacci | N: 38 | Result: 39088169 | Time: 57.3479 ms
-Fibonacci | N: 40 | Result: 102334155 | Time: 133.894 ms
+Fibonacci | N: 30 | Result: 832040 | Time: 1.24541 ms
+Fibonacci | N: 32 | Result: 2178309 | Time: 3.68413 ms
+Fibonacci | N: 34 | Result: 5702887 | Time: 10.4004 ms
+Fibonacci | N: 36 | Result: 14930352 | Time: 22.2949 ms
+Fibonacci | N: 38 | Result: 39088169 | Time: 54.6127 ms
+Fibonacci | N: 40 | Result: 102334155 | Time: 136.062 ms
 ----------------------------------------
 Benchmark: Tower of Hanoi
-Hanoi | Disks: 10 | Time: 0.000341 ms
-Hanoi | Disks: 15 | Time: 0.004261 ms
-Hanoi | Disks: 20 | Time: 0.077871 ms
-Hanoi | Disks: 22 | Time: 4.08163 ms
-Hanoi | Disks: 24 | Time: 4.5057 ms
-Hanoi | Disks: 25 | Time: 4.50572 ms
+Hanoi | Disks: 10 | Time: 0.000325 ms
+Hanoi | Disks: 15 | Time: 0.00488 ms
+Hanoi | Disks: 20 | Time: 0.122424 ms
+Hanoi | Disks: 22 | Time: 4.05973 ms
+Hanoi | Disks: 24 | Time: 2.59232 ms
+Hanoi | Disks: 25 | Time: 4.12583 ms
 ----------------------------------------
 Benchmark: Matrix Multiplication
-Matrix Multiplication | Size: 100 | Time: 0.622413 ms
-Matrix Multiplication | Size: 200 | Time: 4.46658 ms
-Matrix Multiplication | Size: 300 | Time: 19.6043 ms
-Matrix Multiplication | Size: 400 | Time: 50.2232 ms
-Matrix Multiplication | Size: 500 | Time: 96.0995 ms
+Matrix Multiplication | Size: 100 | Time: 0.373132 ms
+Matrix Multiplication | Size: 200 | Time: 4.56392 ms
+Matrix Multiplication | Size: 300 | Time: 12.3541 ms
+Matrix Multiplication | Size: 400 | Time: 45.4754 ms
+Matrix Multiplication | Size: 500 | Time: 94.7014 ms
 ----------------------------------------
 Benchmark: QuickSort
-QuickSort | Array Size: 1000 | Time: 0.032667 ms
-QuickSort | Array Size: 5000 | Time: 0.147795 ms
-QuickSort | Array Size: 10000 | Time: 0.42697 ms
-QuickSort | Array Size: 50000 | Time: 2.4777 ms
-QuickSort | Array Size: 100000 | Time: 5.58378 ms
+QuickSort | Array Size: 1000 | Time: 0.033121 ms
+QuickSort | Array Size: 5000 | Time: 0.197928 ms
+QuickSort | Array Size: 10000 | Time: 0.419852 ms
+QuickSort | Array Size: 50000 | Time: 2.55939 ms
+QuickSort | Array Size: 100000 | Time: 4.84028 ms
 ----------------------------------------
 Benchmark: Prime Number Sieve
-Prime Sieve | Upper Limit: 100000 | Time: 0.320199 ms
-Prime Sieve | Upper Limit: 500000 | Time: 1.62703 ms
-Prime Sieve | Upper Limit: 1000000 | Time: 2.30248 ms
-Prime Sieve | Upper Limit: 5000000 | Time: 18.7809 ms
+Prime Sieve | Upper Limit: 100000 | Time: 0.322673 ms
+Prime Sieve | Upper Limit: 500000 | Time: 1.73122 ms
+Prime Sieve | Upper Limit: 1000000 | Time: 2.72615 ms
+Prime Sieve | Upper Limit: 5000000 | Time: 18.0486 ms
 ----------------------------------------

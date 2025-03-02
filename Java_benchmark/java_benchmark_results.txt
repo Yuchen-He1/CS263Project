@@ -1,0 +1,44 @@
+Java Benchmarks Performance Results (Wall Time)
+-------------------------------------------------
+Benchmark: Bubble Sort
+Bubble Sort | Array Size: 1000 | Time: 2.66 ms
+Bubble Sort | Array Size: 5000 | Time: 18.11 ms
+Bubble Sort | Array Size: 10000 | Time: 62.79 ms
+Bubble Sort | Array Size: 50000 | Time: 2871.42 ms
+----------------------------------------
+Benchmark: Fibonacci
+Fibonacci | N: 30 | Result: 832040 | Time: 4.35 ms
+Fibonacci | N: 32 | Result: 2178309 | Time: 9.19 ms
+Fibonacci | N: 34 | Result: 5702887 | Time: 22.81 ms
+Fibonacci | N: 36 | Result: 14930352 | Time: 52.25 ms
+Fibonacci | N: 38 | Result: 39088169 | Time: 134.26 ms
+Fibonacci | N: 40 | Result: 102334155 | Time: 359.57 ms
+----------------------------------------
+Benchmark: Tower of Hanoi
+Hanoi | Disks: 10 | Time: 0.03 ms
+Hanoi | Disks: 15 | Time: 0.29 ms
+Hanoi | Disks: 20 | Time: 1.67 ms
+Hanoi | Disks: 22 | Time: 5.05 ms
+Hanoi | Disks: 24 | Time: 17.63 ms
+Hanoi | Disks: 25 | Time: 27.55 ms
+----------------------------------------
+Benchmark: Matrix Multiplication
+Matrix Multiplication | Size: 100x100 | Time: 4.30 ms
+Matrix Multiplication | Size: 200x200 | Time: 12.24 ms
+Matrix Multiplication | Size: 300x300 | Time: 35.17 ms
+Matrix Multiplication | Size: 400x400 | Time: 61.92 ms
+Matrix Multiplication | Size: 500x500 | Time: 118.54 ms
+----------------------------------------
+Benchmark: QuickSort
+QuickSort | Array Size: 1000 | Time: 0.37 ms
+QuickSort | Array Size: 5000 | Time: 1.44 ms
+QuickSort | Array Size: 10000 | Time: 3.00 ms
+QuickSort | Array Size: 50000 | Time: 11.99 ms
+QuickSort | Array Size: 100000 | Time: 23.60 ms
+----------------------------------------
+Benchmark: Prime Number Sieve
+Prime Sieve | Upper Limit: 100000 | Time: 1.07 ms
+Prime Sieve | Upper Limit: 500000 | Time: 3.22 ms
+Prime Sieve | Upper Limit: 1000000 | Time: 6.29 ms
+Prime Sieve | Upper Limit: 5000000 | Time: 16.32 ms
+----------------------------------------

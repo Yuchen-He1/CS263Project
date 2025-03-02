@@ -1,6 +1,8 @@
 import time
 import random
 
+random.seed(42)
+
 def bubble_sort(arr):
     N = len(arr)
     for i in range(N - 1):

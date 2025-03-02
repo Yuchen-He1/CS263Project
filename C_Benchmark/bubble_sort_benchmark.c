@@ -5,20 +5,21 @@
 #include <stdint.h>
 #include <x86intrin.h>  // For __rdtsc()
 
-long getCurrentTimeMillis() {
+// Get high-precision monotonic time in milliseconds
+double getCurrentTimeMillis() {
     struct timespec ts;
-    clock_gettime(CLOCK_REALTIME, &ts);
-    return (long)(ts.tv_sec * 1000 + ts.tv_nsec / 1000000);
+    clock_gettime(CLOCK_MONOTONIC, &ts);  // More accurate than CLOCK_REALTIME
+    return ts.tv_sec * 1000.0 + ts.tv_nsec / 1e6;  // Convert to ms
 }
 
-// Function to get CPU time in nanoseconds
-long getCPUTimeNanos() {
+// Get CPU time in milliseconds
+double getCPUTimeMillis() {
     struct timespec ts;
-    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &ts);
-    return (long)(ts.tv_sec * 1000000000L + ts.tv_nsec);
+    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &ts);  // Process-specific CPU time
+    return ts.tv_sec * 1000.0 + ts.tv_nsec / 1e6;  // Convert to ms
 }
 
-// Function to read CPU cycle counter (x86 only)
+// Get CPU cycle count
 uint64_t getCPUCycles() {
     return __rdtsc();
 }
@@ -41,13 +42,15 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    srand(42);  // Use fixed seed for reproducibility
+
     // Initialize array with random values
     for (int i = 0; i < N; i++) {
         arr[i] = rand();
     }
 
-    long startWallTime = getCurrentTimeMillis();
-    long startCPUTime = getCPUTimeNanos();
+    double startWallTime = getCurrentTimeMillis();
+    double startCPUTime = getCPUTimeMillis();
     uint64_t startCycles = getCPUCycles();
 
     // Bubble Sort
@@ -65,12 +68,11 @@ int main(int argc, char *argv[]) {
     }
 
     uint64_t endCycles = getCPUCycles();
-    long endCPUTime = getCPUTimeNanos();
-    long endWallTime = getCurrentTimeMillis();
+    double endCPUTime = getCPUTimeMillis();
+    double endWallTime = getCurrentTimeMillis();
 
     printf("N = %d\n", N);
-    printf("Elapsed Wall Time: %ld ms\n", (endWallTime - startWallTime));
-    printf("Elapsed CPU Time: %ld ns (%.2f ms)\n", (endCPUTime - startCPUTime), (endCPUTime - startCPUTime) / 1e6);
+    printf("Elapsed CPU Time: %.6f ms\n", (endCPUTime - startCPUTime));
     printf("Elapsed CPU Cycles: %llu\n", (endCycles - startCycles));
 
     free(arr);

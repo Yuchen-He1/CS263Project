@@ -1,6 +1,8 @@
 import time
 import random
 
+random.seed(42)
+
 def multiply_matrices(A, B, N):
     C = [[0] * N for _ in range(N)]
     for i in range(N):

@@ -1,24 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/time.h>   // gettimeofday()
-#include <sys/times.h>  // times()
-#include <unistd.h>     // sysconf()
+#include <time.h>       // clock_gettime()
 #include <stdint.h>     // uint64_t
 #include <x86intrin.h>  // __rdtsc()
 
-// Get wall clock time in seconds
+// Get high-precision monotonic time in milliseconds
 double get_wall_time() {
-    struct timeval tv;
-    gettimeofday(&tv, NULL);
-    return tv.tv_sec + tv.tv_usec / 1e6;
+    struct timespec ts;
+    clock_gettime(CLOCK_MONOTONIC, &ts);  // More accurate than gettimeofday()
+    return ts.tv_sec * 1000.0 + ts.tv_nsec / 1e6;  // Convert to ms
 }
 
-// Get CPU time in seconds
+// Get CPU time in milliseconds
 double get_cpu_time() {
-    struct tms time_sample;
-    clock_t clock_time = times(&time_sample);
-    long ticks_per_sec = sysconf(_SC_CLK_TCK);
-    return (double)clock_time / ticks_per_sec;
+    struct timespec ts;
+    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &ts);  // Process-specific CPU time
+    return ts.tv_sec * 1000.0 + ts.tv_nsec / 1e6;  // Convert to ms
 }
 
 // Get CPU cycle count
@@ -31,7 +28,7 @@ int compare(const void *a, const void *b) {
     return (*(int*)a - *(int*)b);
 }
 
-// Function to generate random array
+// Function to generate a random array
 void generate_random_array(int *arr, int N) {
     for (int i = 0; i < N; i++) {
         arr[i] = rand() % 10000;
@@ -50,6 +47,8 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    srand(42);  // Use fixed seed for reproducibility
+
     // Allocate memory for array
     int *arr = (int*)malloc(N * sizeof(int));
     if (!arr) {
@@ -60,10 +59,9 @@ int main(int argc, char *argv[]) {
     // Initialize array with random values
     generate_random_array(arr, N);
 
-    double start_wall, end_wall, start_cpu, end_cpu;
+    double start_cpu, end_cpu;
     uint64_t start_cycles, end_cycles;
 
-    start_wall = get_wall_time();
     start_cpu = get_cpu_time();
     start_cycles = get_cpu_cycles();
 
@@ -72,11 +70,9 @@ int main(int argc, char *argv[]) {
 
     end_cycles = get_cpu_cycles();
     end_cpu = get_cpu_time();
-    end_wall = get_wall_time();
 
     printf("Array Size: %d\n", N);
-    printf("Wall Time: %.2f ms\n", (end_wall - start_wall) * 1000);
-    printf("CPU Time: %.2f ms\n", (end_cpu - start_cpu) * 1000);
+    printf("CPU Time: %.6f ms\n", (end_cpu - start_cpu));
     printf("CPU Cycles: %llu\n", (end_cycles - start_cycles));
 
     // Free allocated memory

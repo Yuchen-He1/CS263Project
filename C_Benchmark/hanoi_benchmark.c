@@ -1,24 +1,21 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <sys/time.h>   // gettimeofday()
-#include <sys/times.h>  // times()
-#include <unistd.h>     // sysconf()
+#include <time.h>       // clock_gettime()
 #include <stdint.h>     // uint64_t
 #include <x86intrin.h>  // __rdtsc()
 
-// Get wall clock time in seconds
+// Get high-precision monotonic time in milliseconds
 double get_wall_time() {
-    struct timeval tv;
-    gettimeofday(&tv, NULL);
-    return tv.tv_sec + tv.tv_usec / 1e6;
+    struct timespec ts;
+    clock_gettime(CLOCK_MONOTONIC, &ts);  // More accurate than gettimeofday()
+    return ts.tv_sec * 1000.0 + ts.tv_nsec / 1e6;  // Convert to ms
 }
 
-// Get CPU time in seconds
+// Get CPU time in milliseconds
 double get_cpu_time() {
-    struct tms time_sample;
-    clock_t clock_time = times(&time_sample);
-    long ticks_per_sec = sysconf(_SC_CLK_TCK);
-    return (double)clock_time / ticks_per_sec;
+    struct timespec ts;
+    clock_gettime(CLOCK_PROCESS_CPUTIME_ID, &ts);  // Process-specific CPU time
+    return ts.tv_sec * 1000.0 + ts.tv_nsec / 1e6;  // Convert to ms
 }
 
 // Get CPU cycle count
@@ -28,7 +25,7 @@ uint64_t get_cpu_cycles() {
 
 // Simulate moving a disk (no actual output to avoid slowdowns)
 void moveDisk(int n, char from, char to) {
-    // printf("Move disk %d from %c to %c\n", n, from, to); // Commented out to avoid performance impact
+    // Placeholder function to simulate move without affecting performance
 }
 
 // Recursive Tower of Hanoi function
@@ -54,10 +51,9 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    double start_wall, end_wall, start_cpu, end_cpu;
+    double start_cpu, end_cpu;
     uint64_t start_cycles, end_cycles;
 
-    start_wall = get_wall_time();
     start_cpu = get_cpu_time();
     start_cycles = get_cpu_cycles();
 
@@ -65,12 +61,10 @@ int main(int argc, char *argv[]) {
 
     end_cycles = get_cpu_cycles();
     end_cpu = get_cpu_time();
-    end_wall = get_wall_time();
 
     printf("Hanoi(%d) completed.\n", n);
-    printf("Wall Time: %.2f ms\n", (end_wall - start_wall) * 1000);
-    printf("CPU Time: %.2f ms\n", (end_cpu - start_cpu) * 1000);
-    printf("CPU Cycles: %llu\n", (end_cycles - start_cycles));
+    printf("CPU Time: %.6f ms\n", end_cpu - start_cpu);
+    printf("CPU Cycles: %llu\n", end_cycles - start_cycles);
 
     return 0;
 }

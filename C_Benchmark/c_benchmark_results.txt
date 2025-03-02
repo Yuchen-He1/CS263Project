@@ -2,133 +2,73 @@ C Benchmarks Performance Results (Wall Time, CPU Time, Cycles)
 ----------------------------------------------------------------
 Benchmark: Bubble Sort
 N = 1000
-Elapsed Wall Time: 2 ms
-Elapsed CPU Time: 1660535 ns (1.66 ms)
-Elapsed CPU Cycles: 4458508
+Elapsed CPU Time: 1648245 ns (1.6482450000 ms)
 N = 5000
-Elapsed Wall Time: 33 ms
-Elapsed CPU Time: 32614277 ns (32.61 ms)
-Elapsed CPU Cycles: 87757305
+Elapsed CPU Time: 43238897 ns (43.2388970000 ms)
 N = 10000
-Elapsed Wall Time: 145 ms
-Elapsed CPU Time: 144630302 ns (144.63 ms)
-Elapsed CPU Cycles: 388864703
+Elapsed CPU Time: 131292888 ns (131.2928880000 ms)
 N = 50000
-Elapsed Wall Time: 4866 ms
-Elapsed CPU Time: 4862260954 ns (4862.26 ms)
-Elapsed CPU Cycles: 13081429523
+Elapsed CPU Time: 4818993262 ns (4818.9932620000 ms)
 ----------------------------------------
 Benchmark: Fibonacci
 Fibonacci(30) = 832040
-Wall Time: 1.38 ms
 CPU Time: 0.00 ms
-CPU Cycles: 3708280
 Fibonacci(32) = 2178309
-Wall Time: 3.12 ms
 CPU Time: 0.00 ms
-CPU Cycles: 8374527
 Fibonacci(34) = 5702887
-Wall Time: 9.89 ms
 CPU Time: 10.00 ms
-CPU Cycles: 26572414
 Fibonacci(36) = 14930352
-Wall Time: 23.38 ms
-CPU Time: 30.00 ms
-CPU Cycles: 62816466
+CPU Time: 20.00 ms
 Fibonacci(38) = 39088169
-Wall Time: 58.66 ms
 CPU Time: 60.00 ms
-CPU Cycles: 157657907
 Fibonacci(40) = 102334155
-Wall Time: 138.32 ms
 CPU Time: 140.00 ms
-CPU Cycles: 371796821
 ----------------------------------------
 Benchmark: Tower of Hanoi
 Hanoi(10) completed.
-Wall Time: 0.00 ms
 CPU Time: 0.00 ms
-CPU Cycles: 772
 Hanoi(15) completed.
-Wall Time: 0.01 ms
 CPU Time: 0.00 ms
-CPU Cycles: 11198
 Hanoi(20) completed.
-Wall Time: 0.12 ms
 CPU Time: 0.00 ms
-CPU Cycles: 328554
 Hanoi(22) completed.
-Wall Time: 3.89 ms
-CPU Time: 10.00 ms
-CPU Cycles: 10447308
+CPU Time: 0.00 ms
 Hanoi(24) completed.
-Wall Time: 4.39 ms
 CPU Time: 0.00 ms
-CPU Cycles: 11783416
 Hanoi(25) completed.
-Wall Time: 3.59 ms
-CPU Time: 0.00 ms
-CPU Cycles: 9649631
+CPU Time: 10.00 ms
 ----------------------------------------
 Benchmark: Matrix Multiplication
 Matrix Size: 100 x 100
-Wall Time: 0.75 ms
 CPU Time: 0.00 ms
-CPU Cycles: 2006524
 Matrix Size: 200 x 200
-Wall Time: 7.79 ms
 CPU Time: 10.00 ms
-CPU Cycles: 20907176
 Matrix Size: 300 x 300
-Wall Time: 19.33 ms
 CPU Time: 20.00 ms
-CPU Cycles: 51947471
 Matrix Size: 400 x 400
-Wall Time: 44.07 ms
 CPU Time: 40.00 ms
-CPU Cycles: 118420822
 Matrix Size: 500 x 500
-Wall Time: 86.71 ms
 CPU Time: 90.00 ms
-CPU Cycles: 233051278
 ----------------------------------------
 Benchmark: QuickSort
 Array Size: 1000
-Wall Time: 0.06 ms
 CPU Time: 0.00 ms
-CPU Cycles: 152500
 Array Size: 5000
-Wall Time: 0.37 ms
 CPU Time: 0.00 ms
-CPU Cycles: 985387
 Array Size: 10000
-Wall Time: 0.72 ms
 CPU Time: 0.00 ms
-CPU Cycles: 1915294
 Array Size: 50000
-Wall Time: 4.37 ms
-CPU Time: 0.00 ms
-CPU Cycles: 11738924
-Array Size: 100000
-Wall Time: 7.67 ms
 CPU Time: 10.00 ms
-CPU Cycles: 20605803
+Array Size: 100000
+CPU Time: 10.00 ms
 ----------------------------------------
 Benchmark: Prime Number Sieve
 Prime Sieve Upper Limit: 100000
-Wall Time: 0.13 ms
 CPU Time: 0.00 ms
-CPU Cycles: 349152
 Prime Sieve Upper Limit: 500000
-Wall Time: 0.56 ms
 CPU Time: 0.00 ms
-CPU Cycles: 1490122
 Prime Sieve Upper Limit: 1000000
-Wall Time: 1.54 ms
 CPU Time: 0.00 ms
-CPU Cycles: 4123404
 Prime Sieve Upper Limit: 5000000
-Wall Time: 9.47 ms
-CPU Time: 0.00 ms
-CPU Cycles: 25431425
+CPU Time: 10.00 ms
 ----------------------------------------

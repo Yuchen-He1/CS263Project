@@ -2,6 +2,7 @@
 #include <vector>
 #include <cstdlib>
 #include <chrono>
+#include <random>
 
 using namespace std;
 using namespace chrono;
@@ -21,6 +22,8 @@ void bubble_sort(vector<int>& arr) {
 }
 
 int main(int argc, char* argv[]) {
+    std::mt19937 rng(42);  // Fixed seed for reproducibility
+    std::uniform_int_distribution<int> dist(0, 10000);
     if (argc != 2) {
         cerr << "Usage: " << argv[0] << " <array_size>" << endl;
         return 1;

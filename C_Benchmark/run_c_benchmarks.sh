@@ -10,7 +10,7 @@ echo "Compiling all C benchmarks..."
 gcc bubble_sort_benchmark.c -o bubble_sort_benchmark -O2 -march=native
 gcc fibonacci_benchmark.c -o fibonacci_benchmark -O2 -march=native
 gcc hanoi_benchmark.c -o hanoi_benchmark -O2 -march=native
-gcc matrix_multiplication_benchmark.c -o matrix_benchmark -O2 -march=native
+gcc matrix_benchmark.c -o matrix_benchmark -O2 -march=native
 gcc qsort_benchmark.c -o qsort_benchmark -O2 -march=native
 gcc prime_sieve_benchmark.c -o prime_sieve_benchmark -O2 -march=native
 echo "Compilation completed."

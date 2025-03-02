@@ -1,6 +1,8 @@
 import time
 import random
 
+random.seed(42)
+
 def main():
     N = int(input("Enter array size: "))
     arr = [random.randint(0, 10000) for _ in range(N)]
