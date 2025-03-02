@@ -1,0 +1,42 @@
+Tower of Hanoi Performance Results (Wall Time, CPU Time, Cycles)
+--------------------------------------------------------------
+Hanoi(10) completed.
+Wall Time: 0.00 ms
+CPU Time: 0.00 ms
+CPU Cycles: 610
+Hanoi(15) completed.
+Wall Time: 0.01 ms
+CPU Time: 0.00 ms
+CPU Cycles: 12526
+Hanoi(20) completed.
+Wall Time: 0.14 ms
+CPU Time: 0.00 ms
+CPU Cycles: 370320
+Hanoi(22) completed.
+Wall Time: 2.82 ms
+CPU Time: 0.00 ms
+CPU Cycles: 7560683
+Hanoi(24) completed.
+Wall Time: 4.33 ms
+CPU Time: 0.00 ms
+CPU Cycles: 11640562
+Hanoi(25) completed.
+Wall Time: 4.36 ms
+CPU Time: 0.00 ms
+CPU Cycles: 11710796
+Hanoi(26) completed.
+Wall Time: 4.39 ms
+CPU Time: 10.00 ms
+CPU Cycles: 11794714
+Hanoi(27) completed.
+Wall Time: 84.26 ms
+CPU Time: 80.00 ms
+CPU Cycles: 226475088
+Hanoi(28) completed.
+Wall Time: 99.08 ms
+CPU Time: 100.00 ms
+CPU Cycles: 266291133
+Hanoi(29) completed.
+Wall Time: 93.52 ms
+CPU Time: 100.00 ms
+CPU Cycles: 251368250

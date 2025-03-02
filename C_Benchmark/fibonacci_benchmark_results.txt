@@ -1,0 +1,34 @@
+Fibonacci Performance Results (Wall Time, CPU Time, Cycles)
+-----------------------------------------------------------
+Fibonacci(30) = 832040
+Wall Time: 0.88 ms
+CPU Time: 10.00 ms
+CPU Cycles: 2352374
+Fibonacci(32) = 2178309
+Wall Time: 2.90 ms
+CPU Time: 0.00 ms
+CPU Cycles: 7796481
+Fibonacci(34) = 5702887
+Wall Time: 7.37 ms
+CPU Time: 10.00 ms
+CPU Cycles: 19798309
+Fibonacci(36) = 14930352
+Wall Time: 24.35 ms
+CPU Time: 20.00 ms
+CPU Cycles: 65426593
+Fibonacci(38) = 39088169
+Wall Time: 62.14 ms
+CPU Time: 70.00 ms
+CPU Cycles: 167017990
+Fibonacci(40) = 102334155
+Wall Time: 142.61 ms
+CPU Time: 140.00 ms
+CPU Cycles: 383312669
+Fibonacci(42) = 267914296
+Wall Time: 374.85 ms
+CPU Time: 380.00 ms
+CPU Cycles: 1007586115
+Fibonacci(44) = 701408733
+Wall Time: 950.03 ms
+CPU Time: 950.00 ms
+CPU Cycles: 2553697676
