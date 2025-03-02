@@ -1,0 +1,44 @@
+Python Benchmarks Performance Results (Wall Time)
+-------------------------------------------------
+Benchmark: Bubble Sort
+Enter array size: Bubble Sort | Array Size: 1000 | Time: 29.86 ms
+Enter array size: Bubble Sort | Array Size: 5000 | Time: 787.71 ms
+Enter array size: Bubble Sort | Array Size: 10000 | Time: 3112.91 ms
+Enter array size: Bubble Sort | Array Size: 50000 | Time: 83885.57 ms
+----------------------------------------
+Benchmark: Fibonacci
+Enter Fibonacci number index: Fibonacci | N: 30 | Result: 832040 | Time: 85.16 ms
+Enter Fibonacci number index: Fibonacci | N: 32 | Result: 2178309 | Time: 213.52 ms
+Enter Fibonacci number index: Fibonacci | N: 34 | Result: 5702887 | Time: 568.82 ms
+Enter Fibonacci number index: Fibonacci | N: 36 | Result: 14930352 | Time: 1521.64 ms
+Enter Fibonacci number index: Fibonacci | N: 38 | Result: 39088169 | Time: 3854.27 ms
+Enter Fibonacci number index: Fibonacci | N: 40 | Result: 102334155 | Time: 10268.69 ms
+----------------------------------------
+Benchmark: Tower of Hanoi
+Enter number of disks: Hanoi | Disks: 10 | Time: 0.04 ms
+Enter number of disks: Hanoi | Disks: 15 | Time: 1.21 ms
+Enter number of disks: Hanoi | Disks: 20 | Time: 40.09 ms
+Enter number of disks: Hanoi | Disks: 22 | Time: 149.28 ms
+Enter number of disks: Hanoi | Disks: 24 | Time: 567.09 ms
+Enter number of disks: Hanoi | Disks: 25 | Time: 1170.39 ms
+----------------------------------------
+Benchmark: Matrix Multiplication
+Enter matrix size: Matrix Multiplication | Size: 100x100 | Time: 56.59 ms
+Enter matrix size: Matrix Multiplication | Size: 200x200 | Time: 423.39 ms
+Enter matrix size: Matrix Multiplication | Size: 300x300 | Time: 1555.17 ms
+Enter matrix size: Matrix Multiplication | Size: 400x400 | Time: 3969.57 ms
+Enter matrix size: Matrix Multiplication | Size: 500x500 | Time: 7111.25 ms
+----------------------------------------
+Benchmark: QuickSort
+Enter array size: QuickSort | Array Size: 1000 | Time: 0.10 ms
+Enter array size: QuickSort | Array Size: 5000 | Time: 0.63 ms
+Enter array size: QuickSort | Array Size: 10000 | Time: 1.35 ms
+Enter array size: QuickSort | Array Size: 50000 | Time: 7.00 ms
+Enter array size: QuickSort | Array Size: 100000 | Time: 13.58 ms
+----------------------------------------
+Benchmark: Prime Number Sieve
+Enter upper limit for prime sieve: Prime Sieve | Upper Limit: 100000 | Time: 3.86 ms
+Enter upper limit for prime sieve: Prime Sieve | Upper Limit: 500000 | Time: 20.67 ms
+Enter upper limit for prime sieve: Prime Sieve | Upper Limit: 1000000 | Time: 46.77 ms
+Enter upper limit for prime sieve: Prime Sieve | Upper Limit: 5000000 | Time: 229.37 ms
+----------------------------------------
