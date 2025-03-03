@@ -1,0 +1,9 @@
+Benchmark,Input Size,Time (ms)
+bubble_sort_wasm.py,10,0.825729
+bubble_sort_wasm.py,50,0.636691
+bubble_sort_wasm.py,100,1.025162
+bubble_sort_wasm.py,500,15.068103
+bubble_sort_wasm.py,10,0.538703
+bubble_sort_wasm.py,50,0.577027
+bubble_sort_wasm.py,100,0.843773
+bubble_sort_wasm.py,500,14.421930
