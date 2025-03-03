@@ -2,6 +2,8 @@
 
 ## Requirements
 ```shell
+sudo apt install build-essential
+sudo apt install python3 python3-pip
 sudo apt install nodejs npm
 npm install pyodide
 ```
