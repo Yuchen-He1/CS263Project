@@ -1,5 +1,16 @@
 # CS263Project
 
+##step to run wasm c benchmark
+
+```shell
+cd WASM/C_Benchmark/
+chmod +x compile_and_run_wasm.sh 
+./compile_and_run_wasm.sh 
+```
+
+Output file: 'wasm_results_c.csv'
+
+
 ## step of how to compile and run C/C++ program on web assembly
 
 running on local webassembly runtime
