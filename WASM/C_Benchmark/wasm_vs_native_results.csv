@@ -1,0 +1,11 @@
+Benchmark,Input Size,Native Time (ms),WebAssembly Time (ms)
+bubble_sort_wasm,1000,N/A,N/A
+bubble_sort_wasm,5000,N/A,N/A
+bubble_sort_wasm,10000,N/A,N/A
+bubble_sort_wasm,50000,N/A,N/A
+fibonacci_wasm,30,N/A,N/A
+fibonacci_wasm,32,N/A,N/A
+fibonacci_wasm,34,N/A,N/A
+fibonacci_wasm,36,N/A,N/A
+fibonacci_wasm,38,N/A,N/A
+fibonacci_wasm,40,N/A,N/A
