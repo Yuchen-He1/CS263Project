@@ -71,3 +71,12 @@ matrix_multiplication_wasm.py,run_matrix_multiplication,200,1125.867918
 matrix_multiplication_wasm.py,run_matrix_multiplication,300,3814.749181
 matrix_multiplication_wasm.py,run_matrix_multiplication,400,8619.298674
 matrix_multiplication_wasm.py,run_matrix_multiplication,500,16851.500951
+qsort_wasm.py,run_qsort,1000,2.096122
+qsort_wasm.py,run_qsort,5000,7.664873
+qsort_wasm.py,run_qsort,10000,15.833655
+qsort_wasm.py,run_qsort,50000,67.600948
+qsort_wasm.py,run_qsort,100000,132.675316
+prime_sieve_wasm.py,run_prime_sieve,100000,10.467049
+prime_sieve_wasm.py,run_prime_sieve,500000,47.746829
+prime_sieve_wasm.py,run_prime_sieve,1000000,102.628608
+prime_sieve_wasm.py,run_prime_sieve,5000000,524.325715
