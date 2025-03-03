@@ -1,6 +1,22 @@
 # CS263Project
 
-##step to run wasm c benchmark
+## Requirements
+```shell
+sudo apt install nodejs npm
+npm install pyodide
+```
+
+Install emsdk
+
+```shell
+git clone https://github.com/emscripten-core/emsdk.git
+cd emsdk
+./emsdk install latest
+./emsdk activate latest
+source ./emsdk_env.sh
+```
+
+## step to run wasm c benchmark
 
 ```shell
 cd WASM/C_Benchmark/
@@ -9,6 +25,28 @@ chmod +x compile_and_run_wasm.sh
 ```
 
 Output file: 'wasm_results_c.csv'
+
+
+## step to run wasm c++ benchmark
+
+```shell
+cd WASM/CPP_benchmark/
+chmod +x compile_and_run_wasm.sh 
+./compile_and_run_wasm.sh 
+```
+
+Output file: 'wasm_results_cpp.csv'
+
+## step to run wasm python benchmark
+
+```shell
+cd WASM/Python_Benchmark/
+node run_python_wasm.mjs
+```
+
+Output file: 'python_wasm_results.csv'
+
+
 
 
 ## step of how to compile and run C/C++ program on web assembly
