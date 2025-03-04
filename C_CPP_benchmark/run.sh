@@ -1,22 +1,26 @@
 #!/bin/bash
 # run_benchmarks.sh
-# 并发运行 bin/ 目录下所有 benchmark（C/CPP 的 native 与 WASM 版本），
-# 每个 benchmark 运行多次后取平均值，并将结果写入 CSV 文件（results.csv）。
-# WASM 版本使用绝对路径调用 wasmtime。
+# This script concurrently runs all benchmarks located in the 'bin/' directory.
+# It supports four variants: C native, C WASM, CPP native, and CPP WASM.
+# Each benchmark is executed multiple times (NUM_RUNS) and the average execution time (in milliseconds) is computed.
+# The results are saved in a CSV file (results.csv).
+# WASM benchmarks are executed using an absolute path to wasmtime.
+#
+# Note: All benchmark outputs are converted and saved in milliseconds.
 
-# 设置每个 benchmark 运行次数
+# Number of runs for each benchmark
 NUM_RUNS=5
 
-# WASMTIME 的绝对路径，请根据实际情况修改
+# Absolute path to WASMTIME; adjust as necessary
 WASMTIME="/home/hylanc/.wasmtime/bin/wasmtime"
 
-# CSV 输出文件
+# CSV output file
 CSV_FILE="results.csv"
 
-# 初始化 CSV 文件（写入表头）
-echo "Benchmark,Variant,AverageTime(s)" > "$CSV_FILE"
+# Initialize the CSV file with a header (AverageTime in ms)
+echo "Benchmark,Variant,AverageTime(ms)" > "$CSV_FILE"
 
-# 定义四种类型对应的后缀和运行命令（native 直接运行，wasm 使用 wasmtime）
+# Define the file suffix for each variant and the corresponding command.
 declare -A VARIANT_SUFFIX
 declare -A VARIANT_CMD
 VARIANT_SUFFIX["C_native"]="_c_native.out"
@@ -29,23 +33,24 @@ VARIANT_CMD["CPP_native"]=""
 VARIANT_CMD["C_wasm"]="$WASMTIME"
 VARIANT_CMD["CPP_wasm"]="$WASMTIME"
 
-# 用于并发运行时，存放每个任务的临时输出文件目录
+# Temporary directory for concurrent execution outputs (if needed)
 TMP_DIR="tmp_results"
 mkdir -p "$TMP_DIR"
 
-# 函数：运行单个 benchmark 多次，计算平均时间（秒）
-# 参数1：完整文件路径
-# 参数2：variant（例如 C_native、C_wasm、CPP_native、CPP_wasm）
-# 结果写入临时文件，文件名基于 benchmark名和 variant
+# Function: Run a single benchmark multiple times and compute the average execution time (in milliseconds).
+# Parameters:
+#   $1 - Full path to the benchmark file.
+#   $2 - Variant (e.g., C_native, C_wasm, CPP_native, CPP_wasm).
+# The result is appended to the CSV file.
 run_benchmark() {
     local filepath="$1"
     local variant="$2"
     local suffix="${VARIANT_SUFFIX[$variant]}"
     
-    # 提取 benchmark 名称：去掉 bin/ 前缀和后缀
+    # Extract the benchmark name by removing the 'bin/' prefix and the variant-specific suffix.
     local rel_path="${filepath#bin/}"
     local bench_name="${rel_path%$suffix}"
-    # 如果是 C 或 CPP，bench_name 可能还包含 .c 或 .cpp 后缀，这里去除
+    # Remove any .c or .cpp extension if present.
     bench_name="${bench_name%.c}"
     bench_name="${bench_name%.cpp}"
     
@@ -53,7 +58,8 @@ run_benchmark() {
     local total=0
     local count=0
 
-    # 循环运行 NUM_RUNS 次，解析输出中的时间值（支持 ms 或 s）
+    # Run the benchmark NUM_RUNS times and parse the output for the time.
+    # The output must include "Time:" followed by a number and a unit (ms or s).
     for (( i=1; i<=NUM_RUNS; i++ )); do
         if [ -n "$cmd_prefix" ]; then
             output=$("$cmd_prefix" "$filepath")
@@ -61,20 +67,20 @@ run_benchmark() {
             output=$("$filepath")
         fi
 
-        # 使用 Bash 正则提取 "Time:" 后面的数字和单位
+        # Extract the numeric value and unit from the output using regex.
         if [[ "$output" =~ Time:\ ([0-9.]+)\ (ms|s) ]]; then
             value="${BASH_REMATCH[1]}"
             unit="${BASH_REMATCH[2]}"
             if [ "$unit" == "ms" ]; then
-                # 转换为秒（使用 awk 做浮点运算）
-                time_sec=$(awk "BEGIN {printf \"%.6f\", $value/1000}")
+                time_ms="$value"
             else
-                time_sec="$value"
+                # Convert seconds to milliseconds
+                time_ms=$(awk "BEGIN {printf \"%.6f\", $value * 1000}")
             fi
-            total=$(awk "BEGIN {printf \"%.6f\", $total + $time_sec}")
+            total=$(awk "BEGIN {printf \"%.6f\", $total + $time_ms}")
             ((count++))
         else
-            echo "Warning: 无法解析时间输出。输出内容: $output"
+            echo "Warning: Unable to parse time output. Output: $output"
         fi
     done
 
@@ -84,19 +90,20 @@ run_benchmark() {
         avg="0"
     fi
 
-    # 写入 CSV（格式：Benchmark,Variant,AverageTime(s)）
+    # Append the benchmark result to the CSV file (format: Benchmark,Variant,AverageTime(ms))
     echo "${bench_name},${variant},${avg}" >> "$CSV_FILE"
-    echo "Completed $bench_name ($variant): Average Time = ${avg} s"
+    echo "Completed $bench_name ($variant): Average Time = ${avg} ms"
 }
 
-# 并发运行所有 benchmark：对每个 variant，在 bin 目录下递归查找对应后缀文件
+# Function: Run all benchmarks concurrently.
+# For each variant, recursively search the 'bin/' directory for files matching the variant-specific suffix.
 run_all() {
     for variant in "${!VARIANT_SUFFIX[@]}"; do
         suffix="${VARIANT_SUFFIX[$variant]}"
-        # 查找匹配文件（递归搜索）
+        # Recursively find matching benchmark files.
         files=$(find bin -type f -name "*${suffix}")
         for f in $files; do
-            # 后台运行，每个任务写入自己的输出到 CSV
+            # Run each benchmark in the background.
             run_benchmark "$f" "$variant" &
         done
     done

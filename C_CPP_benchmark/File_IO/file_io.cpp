@@ -5,7 +5,6 @@
 #include <unistd.h>
 #include <cstdlib>
 #include <cstring>
-#include <cstdio>    // for remove()
 
 using namespace std;
 
@@ -17,12 +16,14 @@ void test_file_io(const char *filename) {
     char buffer[BUFFER_SIZE];
     memset(buffer, 'A', BUFFER_SIZE);
 
-    // 写文件
-    int fd = open(filename, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    // 打开文件 (不创建，仅写入)
+    int fd = open(filename, O_WRONLY);
     if(fd < 0) {
-        cerr << "Failed to open file for writing.\n";
+        cerr << "Failed to open existing file for writing.\n";
         return;
     }
+
+    // 计算总写入次数
     long totalWrites = (FILE_SIZE_MB * 1024LL * 1024LL) / BUFFER_SIZE;
     for(long i = 0; i < totalWrites; i++) {
         if(write(fd, buffer, BUFFER_SIZE) < 0) {
@@ -42,10 +43,15 @@ void test_file_io(const char *filename) {
     while(read(fd, buffer, BUFFER_SIZE) > 0) { /* do nothing */ }
     close(fd);
 
-    // 删除文件
-    if(remove(filename) != 0) {
-        cerr << "Failed to delete file: " << filename << "\n";
+    // 清空文件内容但不删除文件
+    fd = open(filename, O_WRONLY | O_TRUNC);
+    if (fd < 0) {
+        cerr << "Failed to truncate file: " << filename << "\n";
+        return;
     }
+    close(fd);
+
+    cout << "File content cleared but file is not deleted.\n";
 }
 
 int main() {

@@ -1,9 +1,10 @@
 #include <iostream>
 #include <chrono>
 using namespace std;
-
+int c=0;
 void moveDisk(int n, char from, char to) {
     // move procedure
+    c++;
     // cout << "Move disk " << n << " from " << from << " to " << to << endl;
 }
 

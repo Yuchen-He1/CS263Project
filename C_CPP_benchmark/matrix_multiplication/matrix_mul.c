@@ -52,9 +52,9 @@ int main(int argc, char *argv[]) {
     double system_time = (double)(end_cpu.tms_stime - start_cpu.tms_stime) / ticks_per_sec * 1000;
     double elapsed_time = (end_wall_time - start_wall_time) * 1000;
  
-    printf("User CPU time: %.2f ms\n", user_time);
-    printf("System CPU time: %.2f ms\n", system_time);
-    printf("Elapsed (wall-clock) time: %.2f ms\n", elapsed_time);
+    //printf("User CPU time: %.2f ms\n", user_time);
+    //printf("System CPU time: %.2f ms\n", system_time);
+    printf("Elapsed (wall-clock) Time: %.2f ms\n", elapsed_time);
  
     // release
     for (int i = 0; i < N; i++) {

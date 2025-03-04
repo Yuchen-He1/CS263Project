@@ -45,8 +45,8 @@ int main(int argc, char *argv[]) {
     auto end = chrono::high_resolution_clock::now();
     double elapsed = chrono::duration<double>(end - start).count() * 1000; // 转换为毫秒
  
-    cout << "Matrix multiplication (" << N << "x" << N << ") done.\n";
-    cout << "Elapsed time: " << elapsed << " ms" << endl;
+    //cout << "Matrix multiplication (" << N << "x" << N << ") done.\n";
+    cout << "Elapsed Time: " << elapsed << " ms" << endl;
  
     // free
     for (int i = 0; i < N; i++) {
