@@ -16,10 +16,10 @@ CC_WASM = $(WASI_SDK_PATH)/bin/clang
 SYSROOT_WASM = $(WASI_SDK_PATH)/share/wasi-sysroot
 
 # Source files (you can add more if needed)
-SRCS = vuln_stack.c vuln_format.c
+SRCS = vuln_stack.c vuln_format.c use_after_free.c vuln_overflow.c 	seg_fault.c
 
 # Derived base names (without extension)
-BASES = vuln_stack vuln_format
+BASES = vuln_stack vuln_format use_after_free vuln_overflow seg_fault
 
 # Suffixes for targets
 NATIVE_SUFFIX = _native
