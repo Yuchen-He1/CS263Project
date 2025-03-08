@@ -1,2 +1,7 @@
-com/example/Client.class
+com/example/MatrixBenchmark.class
+com/example/PrimeSieveBenchmark.class
+com/example/HanoiBenchmark.class
+com/example/QuickSortBenchmark.class
+com/example/FibonacciBenchmark.class
 com/example/BubbleSortBenchmark.class
+com/example/Client.class
