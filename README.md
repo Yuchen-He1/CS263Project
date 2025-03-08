@@ -49,6 +49,17 @@ node run_python_wasm.mjs
 Output file: 'python_wasm_results.csv'
 
 
+## step to run wasm Java benchmark
+
+```shell
+cd WASM/Java_Benchmark/java-wasm-app/target/java-wasm-app-1.0-SNAPSHOT    
+python3 -m http.server 8080
+```
+
+To see the output, open the link in the browser and then you will be able to see the output in the webpage.
+
+
+
 
 
 ## step of how to compile and run C/C++ program on web assembly
