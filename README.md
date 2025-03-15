@@ -32,7 +32,7 @@ Output file: 'wasm_results_c.csv'
 ## step to run wasm c++ benchmark
 
 ```shell
-cd WASM/CPP_benchmark/
+cd WASM/CPP_Benchmark/
 chmod +x compile_and_run_wasm.sh 
 ./compile_and_run_wasm.sh 
 ```
@@ -57,7 +57,6 @@ python3 -m http.server 8080
 ```
 
 To see the output, open the link in the browser and then you will be able to see the output in the webpage.
-
 
 
 
@@ -87,24 +86,4 @@ perf trace wasmtime executable argument1 argument2 ...
 # generate flamegraph
 perf record -g wasmtime my_program.wasm
 perf script | stackcollapse-perf.pl | flamegraph.pl > flamegraph.svg
-```
-## TODO benchmark 
-coremark -[x]   
-coremark-webassembly -[x]  
-how to run coremark respectively
-```shell
-    ./coremark.exe 0x0 0x0 0x66 600000 
-```           
-```shell
-    cd coremark; make; make compile PORT_DIR=simple CC=/home/hylanc/wasi-sdk-25.0-x86_64-linux/bin/clang PORT_CFLAGS="--target=wasm32-wasi 
-                --sysroot=/home/hylanc/wasi-sdk-25.0-x86_64-linux/share/wasi-sysroot
-                 -D_WASI_EMULATED_PROCESS_CLOCKS 
-                 -lwasi-emulated-process-clocks 
-                 -O3 -Wno-deprecated-declarations"
-                 EXE=.wasm ITERATIONS=600000
-    wasmtime coremark.wasm
-```
-matrix_multiplication -[x]   
-recursion -[x]   
-file_io (to test file io, we need to use wasmtime and compile by using clang instead of emcc)
 
